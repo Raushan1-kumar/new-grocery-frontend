@@ -29,7 +29,7 @@ export default function Cart() {
       setOffersLoading(true);
       setOffersError("");
       try {
-        const response = await fetch("http://localhost:5000/api/offers");
+        const response = await fetch("https://new-grocery-backend-uwyb.onrender.com/api/offers");
         if (!response.ok) throw new Error("Failed to fetch offers");
         const data = await response.json();
         if (data.success && Array.isArray(data.offers)) {
@@ -66,7 +66,7 @@ export default function Cart() {
       try {
         const token = localStorage.getItem("token");
         const response = await fetch(
-          "http://localhost:5000/api/cart",
+          "https://new-grocery-backend-uwyb.onrender.com/api/cart",
           {
             headers: {
               Authorization: "Bearer " + token,
@@ -108,7 +108,7 @@ export default function Cart() {
       const token = localStorage.getItem("token");
       for (const update of updates) {
         await fetch(
-          "http://localhost:5000/api/cart/update",
+          "https://new-grocery-backend-uwyb.onrender.com/api/cart/update",
           {
             method: "PUT",
             headers: {
@@ -125,7 +125,7 @@ export default function Cart() {
       }
       // Fetch updated cart
       const response = await fetch(
-        "http://localhost:5000/api/cart",
+        "https://new-grocery-backend-uwyb.onrender.com/api/cart",
         {
           headers: {
             Authorization: "Bearer " + token,
@@ -199,7 +199,7 @@ export default function Cart() {
     try {
       const token = localStorage.getItem("token");
       await fetch(
-        `http://localhost:5000/api/cart/remove/${item.productId}`,
+        `https://new-grocery-backend-uwyb.onrender.com/api/cart/remove/${item.productId}`,
         {
           method: "DELETE",
           headers: {
@@ -209,7 +209,7 @@ export default function Cart() {
         }
       );
       const response = await fetch(
-        "http://localhost:5000/api/cart",
+        "https://new-grocery-backend-uwyb.onrender.com/api/cart",
         {
           headers: {
             Authorization: "Bearer " + token,
@@ -242,7 +242,7 @@ export default function Cart() {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      await fetch("http://localhost:5000/api/cart/clear", {
+      await fetch("https://new-grocery-backend-uwyb.onrender.com/api/cart/clear", {
         method: "DELETE",
         headers: {
           Authorization: "Bearer " + token,
@@ -365,7 +365,7 @@ export default function Cart() {
         totalDiscount: totalDiscount, // Send total discount amount only
       };
 
-      const response = await fetch("http://localhost:5000/api/orders", {
+      const response = await fetch("https://new-grocery-backend-uwyb.onrender.com/api/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

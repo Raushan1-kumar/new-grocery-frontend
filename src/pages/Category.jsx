@@ -41,7 +41,7 @@ async function addToCartBackend({ productId, quantity, size, price, productName,
       alert("Please log in to add to cart.");
       return;
     }
-    const response = await fetch("http://localhost:5000/api/cart/add", {
+    const response = await fetch("https://new-grocery-backend-uwyb.onrender.com/api/cart/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -94,7 +94,7 @@ function CategoryProduct() {
     setError("");
     setProducts([]);
     try {
-      const res = await fetch(`http://localhost:5000/api/products/${encodeURIComponent(categoryId)}`);
+      const res = await fetch(`https://new-grocery-backend-uwyb.onrender.com/api/products/${encodeURIComponent(categoryId)}`);
       const data = await res.json();
       if (res.ok && data.products && Array.isArray(data.products)) {
         setProducts(data.products);

@@ -44,7 +44,7 @@ export default function OffersManagement() {
     setLoading(true);
     setError("");
     try {
-      const response = await fetch("http://localhost:5000/api/offers");
+      const response = await fetch("https://new-grocery-backend-uwyb.onrender.com/api/offers");
       if (!response.ok) throw new Error("Failed to fetch offers");
       const data = await response.json();
       if (data.success && Array.isArray(data.offers)) {
@@ -181,7 +181,7 @@ export default function OffersManagement() {
     try {
       const token = localStorage.getItem("token"); // Adjust auth if needed
       const response = await fetch(
-        `http://localhost:5000/api/offers/${editOfferId}`,
+        `https://new-grocery-backend-uwyb.onrender.com/api/offers/${editOfferId}`,
         {
           method: "PUT",
           headers: {
@@ -232,7 +232,7 @@ export default function OffersManagement() {
     try {
       const token = localStorage.getItem("token"); // Adjust auth if needed
       const response = await fetch(
-        `http://localhost:5000/api/offers/${offerId}`,
+        `https://new-grocery-backend-uwyb.onrender.com/api/offers/${offerId}`,
         {
           method: "DELETE",
           headers: {

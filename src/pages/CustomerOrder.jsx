@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://new-grocery-backend-uwyb.onrender.com");
 
 function OrderDetail() {
   const { orderId } = useParams(); // Get orderId from URL
@@ -26,7 +26,7 @@ function OrderDetail() {
     try {
       const token = localStorage.getItem("token");
       if (!token) throw new Error("Please log in.");
-      const res = await fetch(`http://localhost:5000/api/orders/`, {
+      const res = await fetch(`https://new-grocery-backend-uwyb.onrender.com/api/orders/`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -72,7 +72,7 @@ function OrderDetail() {
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(
-        `http://localhost:5000/api/orders/${order._id}`,
+        `https://new-grocery-backend-uwyb.onrender.com/api/orders/${order._id}`,
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },

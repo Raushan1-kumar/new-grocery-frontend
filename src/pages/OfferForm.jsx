@@ -45,7 +45,7 @@ export default function AddOfferForm() {
       setError(null);
       try {
         const response = await fetch(
-        `http://localhost:5000/api/products/${encodeURIComponent(
+        `https://new-grocery-backend-uwyb.onrender.com/api/products/${encodeURIComponent(
           selectedCategory
         )}`
       );
@@ -124,7 +124,7 @@ export default function AddOfferForm() {
 
       const token = localStorage.getItem("token"); // Add auth token if needed
 
-      const response = await fetch("http://localhost:5000/api/offers", {
+      const response = await fetch("https://new-grocery-backend-uwyb.onrender.com/api/offers", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

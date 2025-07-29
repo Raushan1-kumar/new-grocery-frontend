@@ -46,8 +46,8 @@ export default function LoginRegister() {
     setLoading(true);
     const url =
       mode === 'login'
-        ? 'http://localhost:5000/api/users/login'
-        : 'http://localhost:5000/api/users/register';
+        ? 'https://new-grocery-backend-uwyb.onrender.com/api/users/login'
+        : 'https://new-grocery-backend-uwyb.onrender.com/api/users/register';
     const body =
       mode === 'login'
         ? login

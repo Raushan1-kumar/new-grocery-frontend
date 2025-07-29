@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 import axios from "axios";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://new-grocery-backend-uwyb.onrender.com");
 
 const cardColors = [
   "bg-green-100 text-green-700 border-green-400",
@@ -26,7 +26,7 @@ export default function AdminDashboard() {
       setLoading(true);
       try {
         const token = localStorage.getItem("admintoken");
-        const res = await axios.get("http://localhost:5000/api/orders/admin", {
+        const res = await axios.get("https://new-grocery-backend-uwyb.onrender.com/api/orders/admin", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setOrders(res.data.orders || []);
@@ -84,7 +84,7 @@ export default function AdminDashboard() {
     try {
       const token = localStorage.getItem("admintoken");
       await axios.delete(
-        `http://localhost:5000/api/orders/admin/${orderId}/items/${itemId}`,
+        `https://new-grocery-backend-uwyb.onrender.com/api/orders/admin/${orderId}/items/${itemId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       fetchOrders(); // Refresh orders after removing item
@@ -100,7 +100,7 @@ export default function AdminDashboard() {
     try {
       const token = localStorage.getItem("admintoken");
       await axios.patch(
-        `http://localhost:5000/api/orders/admin/${billOrder._id}/status`,
+        `https://new-grocery-backend-uwyb.onrender.com/api/orders/admin/${billOrder._id}/status`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       );

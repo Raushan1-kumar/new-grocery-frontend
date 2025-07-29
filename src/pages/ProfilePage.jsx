@@ -21,7 +21,7 @@ export default function ProfilePage() {
       return;
     }
 
-    fetch("http://localhost:5000/api/users/me", {
+    fetch("https://new-grocery-backend-uwyb.onrender.com/api/users/me", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -72,7 +72,7 @@ export default function ProfilePage() {
     const token = localStorage.getItem("token");
 
     try {
-      const res = await fetch("http://localhost:5000/api/users/me", {
+      const res = await fetch("https://new-grocery-backend-uwyb.onrender.com/api/users/me", {
         method: "PUT", // or PUT if your backend expects it
         headers: {
           "Content-Type": "application/json",

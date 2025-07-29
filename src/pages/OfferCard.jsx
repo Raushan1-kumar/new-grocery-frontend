@@ -211,8 +211,8 @@ export default function OffersPage() {
   const [error, setError] = useState('');
 
   // You may need to update this endpoint for your project
-  const api = 'http://localhost:5000/api/offers';
-  const productApi = 'http://localhost:5000/api/products/rice-daal'; // Assumes you have such an endpoint
+  const api = 'https://new-grocery-backend-uwyb.onrender.com/api/offers';
+  const productApi = 'https://new-grocery-backend-uwyb.onrender.com/api/products/rice-daal'; // Assumes you have such an endpoint
 
   // Fetch offers
   const fetchOffers = async () => {
